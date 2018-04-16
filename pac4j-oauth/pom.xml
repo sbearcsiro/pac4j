@@ -9,6 +9,7 @@
     </parent>
 
     <artifactId>pac4j-oauth</artifactId>
+    <version>2.2.0.ALA-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>pac4j for OAuth protocol</name>
 
@@ -20,6 +21,7 @@
         <dependency>
             <groupId>org.pac4j</groupId>
             <artifactId>pac4j-core</artifactId>
+            <version>2.2.0</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
@@ -43,6 +45,7 @@
         <dependency>
             <groupId>org.pac4j</groupId>
             <artifactId>pac4j-core</artifactId>
+            <version>2.2.0</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
@@ -75,4 +78,16 @@
         </plugins>
     </build>
 
+  <distributionManagement>
+    <repository>
+      <id>ala-repo-release</id>
+      <name>ALA Internal Releases</name>
+      <url>https://nexus.ala.org.au/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>ala-repo-snapshot</id>
+      <name>ALA Internal Snapshots</name>
+      <url>https://nexus.ala.org.au/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
