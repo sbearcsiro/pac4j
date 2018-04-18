@@ -23,17 +23,24 @@ public class TwitterClient extends OAuth10Client<TwitterProfile> {
 
     private boolean alwaysConfirmAuthorization = false;
 
+    private boolean includeEmail = false;
+
     public TwitterClient() {}
 
     public TwitterClient(final String key, final String secret) {
+        this(key, secret, false);
+    }
+
+    public TwitterClient(final String key, final String secret, boolean includeEmail) {
         setKey(key);
         setSecret(secret);
+        this.includeEmail = includeEmail;
     }
 
     @Override
     protected void clientInit() {
         configuration.setApi(getApi());
-        configuration.setProfileDefinition(new TwitterProfileDefinition());
+        configuration.setProfileDefinition(new TwitterProfileDefinition(includeEmail));
         configuration.setHasBeenCancelledFactory(ctx -> {
             final String denied = ctx.getRequestParameter("denied");
             if (CommonHelper.isNotBlank(denied)) {
@@ -63,5 +70,13 @@ public class TwitterClient extends OAuth10Client<TwitterProfile> {
 
     public void setAlwaysConfirmAuthorization(final boolean alwaysConfirmAuthorization) {
         this.alwaysConfirmAuthorization = alwaysConfirmAuthorization;
+    }
+
+    public boolean isIncludeEmail() {
+        return includeEmail;
+    }
+
+    public void setIncludeEmail(final boolean includeEmail) {
+        this.includeEmail = includeEmail;
     }
 }
