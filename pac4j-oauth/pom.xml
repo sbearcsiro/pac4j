@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>pac4j-oauth</artifactId>
-    <version>2.2.0.ALA-SNAPSHOT</version>
+    <version>2.2.0.ALA</version>
     <packaging>jar</packaging>
     <name>pac4j for OAuth protocol</name>
 
